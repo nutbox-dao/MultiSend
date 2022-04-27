@@ -1,0 +1,14 @@
+{
+  "name": "multisend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.6.0",
+    "@truffle/hdwallet-provider": "^2.0.7"
+  },
+  "prettier": {
+    "printWidth": 200,
+    "proseWrap": "preserve"
+  }
+}
