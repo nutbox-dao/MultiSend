@@ -23,7 +23,7 @@
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 
-
+require('dotenv').config();
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const fs = require('fs');
 const mnemonic = fs.readFileSync(".secret").toString().trim();
@@ -59,6 +59,11 @@ module.exports = {
       provider: () => new HDWalletProvider(JSON.parse(mnemonic), 'https://bsc-dataseed.binance.org/'),//'https://http-testnet.huobichain.com'),// 'https://http-testnet.hecochain.com'),
       network_id: 56
     },
+    arbitrum: {
+      provider: () => new HDWalletProvider(mnemonic, 'https://arb1.arbitrum.io/rpc'),
+      network_id: 42161,
+      gasPrice: 100000000
+    },
     // Another network with more advanced options...
     // advanced: {
     // port: 8777,             // Custom port
@@ -84,6 +89,15 @@ module.exports = {
     // network_id: 2111,   // This network is yours, in the cloud.
     // production: true    // Treats this network as if it was a public net. (default: false)
     // }
+  },
+  plugins: [
+    'truffle-plugin-verify'
+  ],
+
+  api_keys: {
+    bscscan: process.env.BSC_KEY,
+    arbiscan: process.env.ARB_KEY,
+    etherscan: process.env.ARB_KEY
   },
 
   // Set default mocha options here, use special reporters etc.

@@ -3,5 +3,5 @@ const Token = artifacts.require("Token");
 
 module.exports = async (deployer, network, accounts) => {
     await deployer.deploy(MultiSend);
-    await deployer.deploy(Token, "PUNT", "PUNT")
+    // await deployer.deploy(Token, "PUNT", "PUNT")
 };
